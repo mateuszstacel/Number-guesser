@@ -19,24 +19,21 @@ maxNum.textContent = max;
 // Listen for guess 
 guessBtn.addEventListener('click', function(){
     
-    
    let guess = parseInt(guessInput.value);
 
-   //check if won
+   //check for win
    if(guess === winningNum){
         winCase();
    } if(guessesLeft === 0) {
        loseCase(guessesLeft, winningNum);
    } else {
             //wrong attempt
-            setMessage(`${guess} is wrong number, You have ${guessesLeft} more go`, 'red')
+            setMessage(`${guess} is wrong number, You have ${guessesLeft} more try`, 'red')
             //Check if number is in range
             checkRange(guess)
             guessInput.value = '';   
    }
 })
-
-
 
 //set Message
 function setMessage(msg, color){
@@ -73,7 +70,6 @@ function winCase(){
 
 function playAgain() {
     guessBtn.value = "Play Again";
-    guessBtn.className += 'play-again'
     guessBtn.addEventListener('click', function(){
     location.reload();
     })
